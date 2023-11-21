@@ -178,12 +178,12 @@ func go_to_statement(index: int):
 	testimony_indicator.select_statement(current_testimony_index)
 	var command_bookmark = testimony[current_testimony_index]
 	var target_command = testimony_timeline.get_command_by_bookmark(command_bookmark)
-	var command_index = testimony_timeline.get_command_idx(target_command)
+	var command_index = testimony_timeline.get_command_absolute_position(target_command)
 	command_manager.go_to_command_in_collection(command_index, testimony_timeline)
 
 
 func set_statements(statements: PackedStringArray):
-	testimony_timeline = command_manager.current_timeline
+	testimony_timeline = command_manager.current_collection
 	testimony = statements
 	testimony_indicator.set_statements(testimony.size())
 
@@ -240,7 +240,7 @@ func set_flag(flag: String, val: Variant):
 
 func get_savedict() -> Dictionary:
 	var save_dict = {
-		"timeline": command_manager.current_timeline.get_path(),
+		"timeline": command_manager.current_collection.get_path(),
 		"current_command_idx": command_manager.current_command_idx,
 		"flags": flags,
 		"history": command_manager._history,
@@ -255,7 +255,7 @@ func load_savedict(save_dict: Dictionary):
 		command_manager._disconnect_command_signals(command_manager.current_command)
 	for key in save_dict.keys():
 		if key == "timeline":
-			command_manager.current_timeline = load(save_dict[key])
+			command_manager.current_collection = load(save_dict[key])
 		if key == "current_command_idx":
 			command_manager.current_command_idx = save_dict[key]
 		if key == "flags":

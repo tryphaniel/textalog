@@ -1,9 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=46 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://addons/textalog/scripts/dialog_view.gd" id="1_slus5"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/CanvasModulate.gd" id="2_c7ej6"]
 [ext_resource type="Script" path="res://addons/blockflow/command_processor.gd" id="3_w4xtt"]
-[ext_resource type="Resource" uid="uid://dusifaa2yw6gd" path="res://timelines/choicetest/choicetest.tres" id="4_gt4ab"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/HUD.gd" id="5_e63f1"]
 [ext_resource type="Shader" path="res://addons/textalog/shaders/ebg.gdshader" id="6_mcrrk"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/MainView.gd" id="7_f3kym"]
@@ -353,7 +352,6 @@ script = ExtResource("2_c7ej6")
 
 [node name="CommandManager" type="Node" parent="."]
 script = ExtResource("3_w4xtt")
-initial_collection = ExtResource("4_gt4ab")
 command_node_fallback_path = NodePath("..")
 
 [node name="HUD" type="CanvasLayer" parent="."]

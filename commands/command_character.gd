@@ -71,7 +71,7 @@ func _execution_steps() -> void:
 		target.set_emote(emote)
 	target.z_index = set_z_index
 	target.flip_h(flipped, flip_duration)
-	target.move_to(to_position, zoom_duration, add_position)
+	target.move_to(to_position, Vector2(1, 1), zoom_duration, add_position)
 	if wait_until_finished and zoom_duration > 0:
 		if target.is_connected("tween_finished", tween_finished):
 			target.tween_finished.disconnect(tween_finished)
