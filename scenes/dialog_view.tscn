@@ -1,23 +1,14 @@
-[gd_scene load_steps=46 format=3 uid="uid://cf117tt2n5op"]
+[gd_scene load_steps=25 format=3 uid="uid://cf117tt2n5op"]
 
 [ext_resource type="Script" path="res://addons/textalog/scripts/dialog_view.gd" id="1_slus5"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/CanvasModulate.gd" id="2_c7ej6"]
 [ext_resource type="Script" path="res://addons/blockflow/command_processor.gd" id="3_w4xtt"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/HUD.gd" id="5_e63f1"]
 [ext_resource type="Shader" path="res://addons/textalog/shaders/ebg.gdshader" id="6_mcrrk"]
+[ext_resource type="PackedScene" uid="uid://drtv4tdo7e08i" path="res://addons/textalog/scenes/dialog_box.tscn" id="7_cgswg"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/MainView.gd" id="7_f3kym"]
-[ext_resource type="Script" path="res://addons/textalog/scripts/DialogBox.gd" id="8_xrbph"]
-[ext_resource type="AudioStream" uid="uid://yk8rowww05ww" path="res://addons/textalog/blip.wav" id="9_dv5ci"]
-[ext_resource type="Theme" uid="uid://b2rsub3l68wd5" path="res://addons/textalog/ui/dialog_theme.tres" id="10_ubpi7"]
-[ext_resource type="Script" path="res://addons/textalog/scripts/Showname.gd" id="11_1mr4u"]
-[ext_resource type="Texture2D" uid="uid://de4v8ab7gv4v5" path="res://addons/textalog/ui/diamond.png" id="12_t0uc5"]
-[ext_resource type="Script" path="res://addons/textalog/scripts/NameIcon.gd" id="13_8bwe1"]
-[ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://addons/textalog/ui/arrow.png" id="14_2bl5j"]
+[ext_resource type="PackedScene" uid="uid://dbhw37x2r56mm" path="res://addons/textalog/scenes/choice_list.tscn" id="8_1euk0"]
 [ext_resource type="Texture2D" uid="uid://cenohrxheffb2" path="res://addons/textalog/raintex.png" id="14_htxqg"]
-[ext_resource type="Script" path="res://addons/textalog/scripts/NextIcon.gd" id="15_ukj1j"]
-[ext_resource type="Script" path="res://addons/textalog/scripts/TestimonyIndicator.gd" id="16_2jxw0"]
-[ext_resource type="Script" path="res://addons/textalog/scripts/ChoiceList.gd" id="17_j87dx"]
-[ext_resource type="Theme" uid="uid://g5rpkpjq6c81" path="res://addons/textalog/choices_theme.tres" id="18_aa1av"]
 [ext_resource type="PackedScene" uid="uid://3jjcuk3xs3ad" path="res://addons/textalog/scenes/evidence_menu.tscn" id="18_d4oiw"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/DebugStuff.gd" id="20_lmwtn"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/EmotePicker.gd" id="21_wvd87"]
@@ -59,227 +50,6 @@ height = 720
 seamless = true
 color_ramp = SubResource("Gradient_dl165")
 noise = SubResource("FastNoiseLite_h0e2a")
-
-[sub_resource type="Animation" id="Animation_i8uyt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kgtpt"]
-resource_name = "spin"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.1, 0.1),
-"update": 0,
-"values": [0.0, 1.5708]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.1, 0.1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xm3xt"]
-_data = {
-"RESET": SubResource("Animation_i8uyt"),
-"spin": SubResource("Animation_kgtpt")
-}
-
-[sub_resource type="Animation" id="Animation_v7qel"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NextIcon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1242, 206)]
-}
-
-[sub_resource type="Animation" id="Animation_yy5st"]
-resource_name = "next"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NextIcon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1242, 206), Vector2(1258, 206)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6xh4b"]
-_data = {
-"RESET": SubResource("Animation_v7qel"),
-"next": SubResource("Animation_yy5st")
-}
-
-[sub_resource type="Animation" id="Animation_iwfo2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 485)]
-}
-
-[sub_resource type="Animation" id="Animation_sx2iy"]
-resource_name = "fade"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Vector2(0, 485), Vector2(0, 725)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ba8a"]
-_data = {
-"RESET": SubResource("Animation_iwfo2"),
-"fade": SubResource("Animation_sx2iy")
-}
-
-[sub_resource type="Animation" id="Animation_3wpy4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(876, 179)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ajusi"]
-resource_name = "fade"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Vector2(876, 179), Vector2(1300, 179)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w67ud"]
-_data = {
-"RESET": SubResource("Animation_3wpy4"),
-"fade": SubResource("Animation_ajusi")
-}
 
 [sub_resource type="Shader" id="Shader_gibmv"]
 code = "/* 
@@ -386,197 +156,14 @@ grow_vertical = 2
 script = ExtResource("7_f3kym")
 dialog_view = NodePath("../..")
 
-[node name="DialogBox" type="Control" parent="HUD/MainView" node_paths=PackedStringArray("showname_label", "dialog_label") groups=["save"]]
+[node name="DialogBox" parent="HUD/MainView" instance=ExtResource("7_cgswg")]
+
+[node name="ChoiceList" parent="HUD/MainView" instance=ExtResource("8_1euk0")]
 layout_mode = 1
-anchors_preset = 0
-offset_top = 485.0
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 1
-script = ExtResource("8_xrbph")
-showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
-dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
-blip_sound = ExtResource("9_dv5ci")
-
-[node name="Dialog" type="PanelContainer" parent="HUD/MainView/DialogBox"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -177.0
-offset_right = 1280.0
-grow_vertical = 0
-mouse_filter = 1
-theme = ExtResource("10_ubpi7")
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/Dialog"]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 20
-
-[node name="ReferenceRect" type="ReferenceRect" parent="HUD/MainView/DialogBox/Dialog/MarginContainer"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/MainView/DialogBox/Dialog/MarginContainer"]
-layout_mode = 2
-mouse_filter = 1
-bbcode_enabled = true
-text = "Press \"Enter\" to progress a test timeline. Lorem Ipsum...... Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .....Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
-scroll_active = false
-visible_characters_behavior = 1
-
-[node name="Showname" type="PanelContainer" parent="HUD/MainView/DialogBox"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -234.0
-offset_right = 363.0
-offset_bottom = -177.0
-grow_vertical = 0
-mouse_filter = 1
-theme = ExtResource("10_ubpi7")
-script = ExtResource("11_1mr4u")
-showname = "Showname is Here"
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/Showname"]
-layout_mode = 2
-theme_override_constants/margin_right = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MainView/DialogBox/Showname/MarginContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="NameIcon" type="TextureRect" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control"]
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-offset_right = 45.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(22, 22)
-texture = ExtResource("12_t0uc5")
-expand_mode = 1
-script = ExtResource("13_8bwe1")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon"]
-libraries = {
-"": SubResource("AnimationLibrary_xm3xt")
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-text = "Showname is Here"
-fit_content = true
-autowrap_mode = 0
-
-[node name="ReferenceRect2" type="ReferenceRect" parent="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-border_width = 2.0
-
-[node name="NextIcon" type="TextureRect" parent="HUD/MainView/DialogBox"]
-custom_minimum_size = Vector2(22, 22)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 1242.0
-offset_top = -29.0
-offset_right = 1264.0
-offset_bottom = -7.0
-grow_vertical = 0
-texture = ExtResource("14_2bl5j")
-expand_mode = 1
-script = ExtResource("15_ukj1j")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/DialogBox/NextIcon"]
-root_node = NodePath("../..")
-autoplay = "next"
-libraries = {
-"": SubResource("AnimationLibrary_6xh4b")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/DialogBox"]
-libraries = {
-"": SubResource("AnimationLibrary_4ba8a")
-}
-
-[node name="TestimonyIndicator" type="PanelContainer" parent="HUD/MainView/DialogBox"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -224.0
-offset_right = 20.0
-offset_bottom = -184.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 1
-script = ExtResource("16_2jxw0")
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MainView/DialogBox/TestimonyIndicator"]
-layout_mode = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="Container" type="HBoxContainer" parent="HUD/MainView/DialogBox/TestimonyIndicator/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="BlipPlayer" type="AudioStreamPlayer" parent="HUD/MainView/DialogBox"]
-max_polyphony = 3
-
-[node name="ChoiceList" type="Control" parent="HUD/MainView"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -404.0
-offset_top = -181.0
-offset_right = -32.0
-offset_bottom = 183.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("17_j87dx")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MainView/ChoiceList"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("18_aa1av")
-alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/MainView/ChoiceList"]
-libraries = {
-"": SubResource("AnimationLibrary_w67ud")
-}
+offset_left = 876.0
+offset_top = 179.0
+offset_right = 1248.0
+offset_bottom = 543.0
 
 [node name="EvidenceMenu" parent="HUD" instance=ExtResource("18_d4oiw")]
 mouse_filter = 2
@@ -621,7 +208,7 @@ text = "Fade In/Out"
 script = ExtResource("22_cau3a")
 animation_to_play = "fade"
 
-[node name="ChatFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+[node name="ChatFadeButton" type="Button" parent="HUD/DebugStuff"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 251.0
@@ -630,10 +217,9 @@ offset_bottom = 282.0
 toggle_mode = true
 text = "Chat Fade In/Out"
 script = ExtResource("22_cau3a")
-zoom_animation = NodePath("../../MainView/DialogBox/AnimationPlayer")
 animation_to_play = "fade"
 
-[node name="ChoiceFadeButton" type="Button" parent="HUD/DebugStuff" node_paths=PackedStringArray("zoom_animation")]
+[node name="ChoiceFadeButton" type="Button" parent="HUD/DebugStuff"]
 layout_mode = 0
 offset_left = 168.0
 offset_top = 251.0
@@ -642,7 +228,6 @@ offset_bottom = 282.0
 toggle_mode = true
 text = "Choice Fade In/Out"
 script = ExtResource("22_cau3a")
-zoom_animation = NodePath("../../MainView/ChoiceList/AnimationPlayer")
 animation_to_play = "fade"
 
 [node name="DelaySpinBox" type="SpinBox" parent="HUD/DebugStuff"]
@@ -784,15 +369,11 @@ position = Vector2(640, 360)
 script = ExtResource("26_ejp0b")
 
 [connection signal="flags_modified" from="." to="HUD/DebugStuff/FlagLabelContainer/VBoxContainer/FlagLabel" method="_on_dialog_view_flags_modified"]
-[connection signal="wait_for_input" from="." to="HUD/MainView/DialogBox/NextIcon" method="_on_dialog_view_wait_for_input"]
+[connection signal="wait_for_input" from="." to="HUD/MainView/DialogBox" method="_on_dialog_view_wait_for_input"]
 [connection signal="collection_finished" from="CommandManager" to="." method="_on_command_manager_timeline_finished"]
 [connection signal="collection_started" from="CommandManager" to="." method="_on_command_manager_timeline_started"]
 [connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
 [connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
-[connection signal="message_end" from="HUD/MainView/DialogBox" to="." method="_on_dialog_box_message_end"]
-[connection signal="message_set" from="HUD/MainView/DialogBox" to="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/Control/NameIcon" method="_on_dialog_box_message_set"]
-[connection signal="finished" from="HUD/MainView/DialogBox/Showname/MarginContainer/HBoxContainer/RichTextLabel" to="HUD/MainView/DialogBox/Showname" method="_on_rich_text_label_finished"]
-[connection signal="animation_started" from="HUD/MainView/DialogBox/AnimationPlayer" to="HUD/MainView/DialogBox" method="_on_animation_player_animation_started"]
 [connection signal="choice_selected" from="HUD/MainView/ChoiceList" to="." method="_on_choice_list_choice_selected"]
 [connection signal="show_evidence" from="HUD/EvidenceMenu" to="." method="_on_evidence_menu_show_evidence"]
 [connection signal="item_selected" from="HUD/DebugStuff/EmotePicker" to="HUD/DebugStuff/EmotePicker" method="_on_item_selected"]
@@ -805,5 +386,3 @@ script = ExtResource("26_ejp0b")
 [connection signal="pressed" from="HUD/DebugStuff/SaveButton" to="HUD/DebugStuff" method="_on_save_button_pressed"]
 [connection signal="pressed" from="HUD/DebugStuff/LoadButton" to="HUD/DebugStuff" method="_on_load_button_pressed"]
 [connection signal="item_activated" from="HUD/DebugStuff/EvidenceList" to="HUD/DebugStuff/EvidenceList" method="_on_item_activated"]
-
-[editable path="HUD/EvidenceMenu"]

@@ -15,6 +15,10 @@ extends PanelContainer
 			rtf_label.text = value
 
 
+func _ready():
+	rtf_label.finished.connect(_on_rich_text_label_finished)
+
+
 func _on_rich_text_label_finished():
 	await get_tree().process_frame
 	reset_size()

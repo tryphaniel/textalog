@@ -13,6 +13,7 @@ signal message_end()
 @export var blip_rate: int = 3
 
 @onready var blip_player: AudioStreamPlayer = $BlipPlayer
+@onready var next_icon: Control = $NextIcon
 
 var process_charcters: bool = false
 var process_counter: float = 0.0
@@ -23,6 +24,11 @@ var last_animation_speed = 1.0
 var blip_counter: int = 0
 
 var parsed_text = ""
+
+
+func _on_dialog_view_wait_for_input(tog):
+	next_icon._on_dialog_view_wait_for_input(tog)
+
 
 func _process(delta):
 	if process_charcters:
