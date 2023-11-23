@@ -160,10 +160,6 @@ dialog_view = NodePath("../..")
 
 [node name="ChoiceList" parent="HUD/MainView" instance=ExtResource("8_1euk0")]
 layout_mode = 1
-offset_left = 876.0
-offset_top = 179.0
-offset_right = 1248.0
-offset_bottom = 543.0
 
 [node name="EvidenceMenu" parent="HUD" instance=ExtResource("18_d4oiw")]
 mouse_filter = 2
@@ -374,6 +370,7 @@ script = ExtResource("26_ejp0b")
 [connection signal="collection_started" from="CommandManager" to="." method="_on_command_manager_timeline_started"]
 [connection signal="command_finished" from="CommandManager" to="." method="_on_command_manager_command_finished"]
 [connection signal="command_started" from="CommandManager" to="." method="_on_command_manager_command_started"]
+[connection signal="message_end" from="HUD/MainView/DialogBox" to="." method="_on_dialog_box_message_end"]
 [connection signal="choice_selected" from="HUD/MainView/ChoiceList" to="." method="_on_choice_list_choice_selected"]
 [connection signal="show_evidence" from="HUD/EvidenceMenu" to="." method="_on_evidence_menu_show_evidence"]
 [connection signal="item_selected" from="HUD/DebugStuff/EmotePicker" to="HUD/DebugStuff/EmotePicker" method="_on_item_selected"]
