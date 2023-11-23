@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://drtv4tdo7e08i"]
+[gd_scene load_steps=16 format=3 uid="uid://drtv4tdo7e08i"]
 
 [ext_resource type="Script" path="res://addons/textalog/scripts/DialogBox.gd" id="1_xumso"]
 [ext_resource type="AudioStream" uid="uid://yk8rowww05ww" path="res://addons/textalog/blip.wav" id="2_g5520"]
@@ -9,33 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cj80nqml0gfh7" path="res://addons/textalog/ui/arrow.png" id="7_ff1qe"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/NextIcon.gd" id="8_6klkf"]
 [ext_resource type="Script" path="res://addons/textalog/scripts/TestimonyIndicator.gd" id="9_qn57o"]
-
-[sub_resource type="Animation" id="Animation_i8uyt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_kgtpt"]
 resource_name = "spin"
@@ -66,23 +39,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xm3xt"]
 _data = {
-"RESET": SubResource("Animation_i8uyt"),
 "spin": SubResource("Animation_kgtpt")
-}
-
-[sub_resource type="Animation" id="Animation_v7qel"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("NextIcon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1242, 206)]
 }
 
 [sub_resource type="Animation" id="Animation_yy5st"]
@@ -104,35 +61,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xh4b"]
 _data = {
-"RESET": SubResource("Animation_v7qel"),
 "next": SubResource("Animation_yy5st")
-}
-
-[sub_resource type="Animation" id="Animation_iwfo2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 485)]
 }
 
 [sub_resource type="Animation" id="Animation_sx2iy"]
@@ -166,7 +95,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ba8a"]
 _data = {
-"RESET": SubResource("Animation_iwfo2"),
 "fade": SubResource("Animation_sx2iy")
 }
 
@@ -280,9 +208,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 1242.0
-offset_top = 206.0
+offset_top = -29.0
 offset_right = 1264.0
-offset_bottom = 228.0
+offset_bottom = -7.0
 grow_vertical = 0
 texture = ExtResource("7_ff1qe")
 expand_mode = 1

@@ -75,7 +75,7 @@ func _execution_steps() -> void:
 			if target_node.is_connected("dialog_finished", speaker.stop_talking):
 				target_node.dialog_finished.disconnect(speaker.stop_talking)
 			target_node.dialog_finished.connect(speaker.stop_talking, CONNECT_ONE_SHOT)
-	if wait_until_finished:
+	if wait_until_finished and letter_delay > 0:
 		if target_node.is_connected("dialog_finished", dialog_finished):
 			target_node.dialog_finished.disconnect(dialog_finished)
 		target_node.dialog_finished.connect(
