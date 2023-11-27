@@ -100,10 +100,12 @@ _data = {
 
 [node name="DialogBox" type="Control" node_paths=PackedStringArray("showname_label", "dialog_label") groups=["save"]]
 layout_mode = 3
-anchors_preset = 0
-offset_top = 485.0
-offset_right = 1280.0
-offset_bottom = 720.0
+anchor_top = 0.674
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.280029
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_xumso")
 showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
@@ -112,11 +114,10 @@ blip_sound = ExtResource("2_g5520")
 
 [node name="Dialog" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = -1
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -177.0
-offset_right = 1280.0
+offset_top = 58.0
 grow_vertical = 0
 mouse_filter = 1
 theme = ExtResource("3_6aa05")
@@ -142,13 +143,11 @@ visible_characters_behavior = 1
 
 [node name="Showname" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
 offset_left = 12.0
-offset_top = -234.0
+offset_top = 1.0
 offset_right = 363.0
-offset_bottom = -177.0
+offset_bottom = 58.0
 grow_vertical = 0
 mouse_filter = 1
 theme = ExtResource("3_6aa05")
