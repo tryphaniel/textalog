@@ -96,7 +96,10 @@ func _get_name() -> StringName:
 
 
 func _get_hint() -> String:
-	return dialog
+	var regex = RegEx.new()
+	regex.compile("\\[.*?\\]")
+	var text_without_tags = regex.sub(dialog, "", true)
+	return text_without_tags
 
 
 func _get_icon() -> Texture:
