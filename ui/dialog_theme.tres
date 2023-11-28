@@ -1,22 +1,29 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b2rsub3l68wd5"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://b2rsub3l68wd5"]
 
 [ext_resource type="StyleBox" uid="uid://4gtak48ac6eo" path="res://addons/textalog/ui/dialog_box.tres" id="1_s6y0u"]
-[ext_resource type="FontFile" uid="uid://dmr7f6s4pyqg5" path="res://addons/textalog/ui/dialog_box/normal_font.tres" id="2_cj6l0"]
+[ext_resource type="FontFile" uid="uid://qxqi0370p2e4" path="res://addons/textalog/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf" id="2_7d6w1"]
+[ext_resource type="FontFile" uid="uid://6n3r027tuf8y" path="res://addons/textalog/fonts/OpenSans/OpenSans-Italic-VariableFont_wdth,wght.ttf" id="3_jm8qu"]
+[ext_resource type="FontFile" uid="uid://c0bksn52cxdri" path="res://addons/textalog/fonts/RobotoMono/RobotoMono-VariableFont_wght.ttf" id="4_yfmhr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8d63b"]
 
 [sub_resource type="FontVariation" id="FontVariation_kjr2u"]
-base_font = ExtResource("2_cj6l0")
-variation_embolden = 1.1
+base_font = ExtResource("2_7d6w1")
+variation_opentype = {
+2003265652: 750
+}
 
-[sub_resource type="FontVariation" id="FontVariation_lo5gg"]
-base_font = ExtResource("2_cj6l0")
-variation_embolden = 1.1
-variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+[sub_resource type="FontVariation" id="FontVariation_jo30p"]
+base_font = ExtResource("3_jm8qu")
+variation_opentype = {
+2003265652: 750
+}
 
-[sub_resource type="FontVariation" id="FontVariation_knpr2"]
-base_font = ExtResource("2_cj6l0")
-variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+[sub_resource type="FontVariation" id="FontVariation_5i4a5"]
+base_font = ExtResource("3_jm8qu")
+variation_opentype = {
+2003265652: 500
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk265"]
 content_margin_left = 4.0
@@ -45,8 +52,14 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 
+[sub_resource type="FontVariation" id="FontVariation_x2pkg"]
+base_font = ExtResource("2_7d6w1")
+variation_opentype = {
+2003265652: 500
+}
+
 [resource]
-default_font = ExtResource("2_cj6l0")
+default_font = SubResource("FontVariation_x2pkg")
 default_font_size = 32
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
@@ -54,15 +67,17 @@ Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/styles/normal = SubResource("StyleBoxEmpty_8d63b")
 PanelContainer/styles/panel = ExtResource("1_s6y0u")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
-RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 0.498039)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
 RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
 RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
 RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
 RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/constants/outline_size = 8
 RichTextLabel/fonts/bold_font = SubResource("FontVariation_kjr2u")
-RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_lo5gg")
-RichTextLabel/fonts/italics_font = SubResource("FontVariation_knpr2")
+RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_jo30p")
+RichTextLabel/fonts/italics_font = SubResource("FontVariation_5i4a5")
+RichTextLabel/fonts/mono_font = ExtResource("4_yfmhr")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_lk265")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_2fhie")

@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctilnyafp01uw"]
+[gd_scene load_steps=15 format=3 uid="uid://ctilnyafp01uw"]
 
 [ext_resource type="Script" path="res://addons/textalog/commands/dialog/dialog_editor.gd" id="1_jdxpf"]
 [ext_resource type="PackedScene" uid="uid://drtv4tdo7e08i" path="res://addons/textalog/scenes/dialog_box.tscn" id="2_qc1nv"]
+[ext_resource type="Texture2D" uid="uid://bnaun6p5vttqr" path="res://addons/textalog/commands/icons/bold.svg" id="3_sscjh"]
+[ext_resource type="Texture2D" uid="uid://dtyuq2rh62ef0" path="res://addons/textalog/commands/icons/italic.svg" id="4_mdvss"]
+[ext_resource type="Texture2D" uid="uid://c7n2wpa6lq2vk" path="res://addons/textalog/commands/icons/underline.svg" id="5_u3vta"]
+[ext_resource type="Texture2D" uid="uid://n0x6f645qcuw" path="res://addons/textalog/commands/icons/strikethrough.svg" id="6_240wf"]
+[ext_resource type="Texture2D" uid="uid://cfpemegfrqj25" path="res://addons/textalog/commands/icons/text-align-left.svg" id="7_aob6y"]
+[ext_resource type="Texture2D" uid="uid://di4mysow6klm7" path="res://addons/textalog/commands/icons/text-align-center.svg" id="8_vtvpy"]
+[ext_resource type="Texture2D" uid="uid://3gmn87twk4xj" path="res://addons/textalog/commands/icons/text-align-right.svg" id="9_3oylr"]
+[ext_resource type="Texture2D" uid="uid://drxagtsnqq3t8" path="res://addons/textalog/commands/icons/text-align-justify.svg" id="10_u4f8d"]
+[ext_resource type="Texture2D" uid="uid://bj5dr34k6yqg0" path="res://addons/textalog/commands/icons/text.svg" id="11_4ugyi"]
+[ext_resource type="Texture2D" uid="uid://d0reisfa8iyh3" path="res://addons/textalog/commands/icons/edit-pencil-line-01.svg" id="12_nns4w"]
+[ext_resource type="Texture2D" uid="uid://cverj5su8dwjw" path="res://addons/textalog/commands/icons/bucket.svg" id="13_uli47"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_lcghf"]
+number_color = Color(0.878431, 0.878431, 0.878431, 1)
+symbol_color = Color(0.878431, 0.878431, 0.878431, 1)
+function_color = Color(0.878431, 0.878431, 0.878431, 1)
+member_variable_color = Color(0.878431, 0.878431, 0.878431, 1)
+color_regions = {
+"[ ]": Color(0.556863, 0.827451, 0.643137, 1)
+}
 
 [node name="dialog_editor" type="Control"]
 layout_mode = 3
@@ -13,86 +33,125 @@ grow_vertical = 2
 script = ExtResource("1_jdxpf")
 metadata/_edit_use_anchors_ = true
 
+[node name="DialogBar" type="HFlowContainer" parent="."]
+layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 31.0
+
+[node name="PlayButton" type="Button" parent="DialogBar"]
+layout_mode = 2
+text = "Play Message"
+
+[node name="DialogBox" parent="." instance=ExtResource("2_qc1nv")]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 0.0432222
+anchor_bottom = 0.372222
+offset_top = -0.119995
+offset_bottom = 0.000640869
+grow_vertical = 0
+
+[node name="Showname" parent="DialogBox" index="1"]
+offset_right = 357.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.372222
 anchor_right = 1.0
-anchor_bottom = 0.670833
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="ButtonBar" type="HFlowContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="Bold" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Bold"
+theme_override_constants/icon_max_width = 0
+icon = ExtResource("3_sscjh")
 
 [node name="Italics" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Italics"
+icon = ExtResource("4_mdvss")
 
 [node name="Underline" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Underline"
+icon = ExtResource("5_u3vta")
 
 [node name="Strikethrough" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Strikethrough"
+icon = ExtResource("6_240wf")
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="Center" type="Button" parent="VBoxContainer/ButtonBar"]
-layout_mode = 2
-text = "Center"
-
 [node name="Left" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Left"
+icon = ExtResource("7_aob6y")
+
+[node name="Center" type="Button" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+icon = ExtResource("8_vtvpy")
 
 [node name="Right" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Right"
+icon = ExtResource("9_3oylr")
 
 [node name="Fill" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Fill"
+icon = ExtResource("10_u4f8d")
+
+[node name="VSeparator6" type="VSeparator" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+
+[node name="Wave" type="Button" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Wave"
+expand_icon = true
+
+[node name="Tornado" type="Button" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Tornado"
+expand_icon = true
+
+[node name="Shake" type="Button" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Shake"
+expand_icon = true
+
+[node name="Fade" type="Button" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Fade"
+expand_icon = true
+
+[node name="Rainbow" type="Button" parent="VBoxContainer/ButtonBar"]
+layout_mode = 2
+text = "Rainbow"
+expand_icon = true
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="TextColorLabel" type="Label" parent="VBoxContainer/ButtonBar"]
+[node name="color" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Text Color:"
-
-[node name="TextColorPicker" type="ColorPickerButton" parent="VBoxContainer/ButtonBar"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-color = Color(1, 1, 1, 1)
+icon = ExtResource("11_4ugyi")
 
 [node name="VSeparator3" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="BackgroundColorLabel" type="Label" parent="VBoxContainer/ButtonBar"]
+[node name="bgcolor" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Background Color:"
-
-[node name="BackgroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/ButtonBar"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
+icon = ExtResource("12_nns4w")
 
 [node name="VSeparator4" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="ForegroundColorLabel" type="Label" parent="VBoxContainer/ButtonBar"]
+[node name="fgcolor" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
-text = "Foreground Color:"
-
-[node name="ForegroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/ButtonBar"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
+icon = ExtResource("13_uli47")
 
 [node name="VSeparator5" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
@@ -100,34 +159,42 @@ layout_mode = 2
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+placeholder_text = "Type your dialog here!"
 deselect_on_focus_loss_enabled = false
 wrap_mode = 1
+syntax_highlighter = SubResource("CodeHighlighter_lcghf")
 metadata/_edit_use_anchors_ = true
 
-[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="ColorPickerDialog" type="ConfirmationDialog" parent="."]
+title = "Pick a color"
+initial_position = 1
+size = Vector2i(306, 625)
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/HFlowContainer"]
-layout_mode = 2
-text = "Play Message"
+[node name="ColorPicker" type="ColorPicker" parent="ColorPickerDialog"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 302.0
+offset_bottom = 580.0
 
-[node name="DialogBox" parent="." instance=ExtResource("2_qc1nv")]
-layout_mode = 2
-anchors_preset = 0
-anchor_top = 0.671
-offset_top = -0.119995
-grow_vertical = 0
-
+[connection signal="pressed" from="DialogBar/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Bold" to="." method="insert_tag" binds= ["b"]]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Italics" to="." method="insert_tag" binds= ["i"]]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Underline" to="." method="insert_tag" binds= ["u"]]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Strikethrough" to="." method="insert_tag" binds= ["s"]]
-[connection signal="pressed" from="VBoxContainer/ButtonBar/Center" to="." method="insert_tag" binds= ["center"]]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Left" to="." method="insert_tag" binds= ["left"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Center" to="." method="insert_tag" binds= ["center"]]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Right" to="." method="insert_tag" binds= ["right"]]
 [connection signal="pressed" from="VBoxContainer/ButtonBar/Fill" to="." method="insert_tag" binds= ["fill"]]
-[connection signal="popup_closed" from="VBoxContainer/ButtonBar/TextColorPicker" to="." method="_on_text_color_picker_popup_closed"]
-[connection signal="popup_closed" from="VBoxContainer/ButtonBar/BackgroundColorPicker" to="." method="_on_background_color_picker_popup_closed"]
-[connection signal="popup_closed" from="VBoxContainer/ButtonBar/ForegroundColorPicker" to="." method="_on_foreground_color_picker_popup_closed"]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Wave" to="." method="insert_tag" binds= ["wave"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Tornado" to="." method="insert_tag" binds= ["tornado"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Shake" to="." method="insert_tag" binds= ["shake"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Fade" to="." method="insert_tag" binds= ["fade"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Rainbow" to="." method="insert_tag" binds= ["rainbow"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/color" to="." method="_on_text_color_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/bgcolor" to="." method="_on_background_color_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/fgcolor" to="." method="_on_foreground_color_pressed"]
 [connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="VBoxContainer/HFlowContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="canceled" from="ColorPickerDialog" to="." method="_on_color_picker_dialog_canceled"]
+[connection signal="confirmed" from="ColorPickerDialog" to="." method="_on_color_picker_dialog_confirmed"]
+
+[editable path="DialogBox"]

@@ -2,13 +2,25 @@
 extends Control
 
 @onready var text_edit: TextEdit = $VBoxContainer/TextEdit
-@onready var text_color_picker = $VBoxContainer/ButtonBar/TextColorPicker
-@onready var background_color_picker = $VBoxContainer/ButtonBar/BackgroundColorPicker
-@onready var foreground_color_picker = $VBoxContainer/ButtonBar/ForegroundColorPicker
+
+@onready var dialog_box = $DialogBox
+@onready var color_picker_dialog = $ColorPickerDialog
+@onready var color_picker = $ColorPickerDialog/ColorPicker
+
+@onready var button_bar = $VBoxContainer/ButtonBar
+
+var current_color_tag = ""
+
+
+func set_dialog(text: String):
+	text_edit.text = text
+	dialog_box.dialog_label.text = text_edit.text
+	dialog_box.dialog_label.visible_characters = -1
 
 
 func _on_text_edit_text_changed():
-	$DialogBox.dialog_label.text = text_edit.text
+	dialog_box.dialog_label.text = text_edit.text
+	dialog_box.dialog_label.visible_characters = -1
 
 
 func insert_tag(tag: String, options: Variant =null, overwrite_tag = true):
@@ -65,17 +77,33 @@ func insert_color(tag: String, color: Color):
 	insert_tag(tag, "#" + color.to_html())
 
 
-func _on_text_color_picker_popup_closed():
-	insert_color("color", text_color_picker.color)
-
-
-func _on_background_color_picker_popup_closed():
-	insert_color("bgcolor", background_color_picker.color)
-
-
-func _on_foreground_color_picker_popup_closed():
-	insert_color("fgcolor", foreground_color_picker.color)
-
-
 func _on_play_button_pressed():
-	$DialogBox.set_msg(text_edit.text)
+	dialog_box.set_msg(text_edit.text)
+
+
+func _on_color_picker_dialog_confirmed():
+#	button_bar.get_node(current_color_tag).modulate = color_picker.color
+	insert_color(current_color_tag, color_picker.color)
+	current_color_tag = ""
+
+
+func _on_color_picker_dialog_canceled():
+	current_color_tag = ""
+
+
+func _on_text_color_pressed():
+	color_picker_dialog.title = "Pick a text color"
+	color_picker_dialog.popup_centered()
+	current_color_tag = "color"
+
+
+func _on_background_color_pressed():
+	color_picker_dialog.title = "Pick a background color"
+	color_picker_dialog.popup_centered()
+	current_color_tag = "bgcolor"
+
+
+func _on_foreground_color_pressed():
+	color_picker_dialog.title = "Pick a foreground color"
+	color_picker_dialog.popup_centered()
+	current_color_tag = "fgcolor"

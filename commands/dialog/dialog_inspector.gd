@@ -8,15 +8,16 @@ const DialogEditorPath = preload("res://addons/textalog/commands/dialog/dialog_e
 
 class DialogEditorWindow extends ConfirmationDialog:
 	var editor_plugin:EditorPlugin
+	var dialog_editor
 	func _init() -> void:
 		title = "Dialog Editor"
-		var dialog_editor = DialogEditorPath.instantiate()
+		dialog_editor = DialogEditorPath.instantiate()
 		add_child(dialog_editor)
 
 class DialogEditorButton extends EditorProperty:
 	var editor_plugin:EditorPlugin
 	var method_button:Button
-	var dialog_editor:DialogEditorWindow
+	var dialog_editor_window:DialogEditorWindow
 	
 	func _update_property() -> void:
 		var edited_object:CommandDialog = get_edited_object()
@@ -27,14 +28,16 @@ class DialogEditorButton extends EditorProperty:
 		method_button.text = dialog
 	
 	func _method_button_pressed() -> void:
-		dialog_editor.confirmed.connect(_method_selector_confirmed, CONNECT_ONE_SHOT)
-		dialog_editor.popup_centered(Vector2i(1280, 720))
+		dialog_editor_window.confirmed.connect(_method_selector_confirmed, CONNECT_ONE_SHOT)
+		dialog_editor_window.popup_centered(Vector2i(1280, 720))
+		dialog_editor_window.dialog_editor.set_dialog(get_edited_object().dialog)
 
 	func _method_selector_confirmed() -> void:
-		print("cool")
+		get_edited_object().dialog = dialog_editor_window.dialog_editor.text_edit.text
+		get_edited_object().notify_property_list_changed()
 
 	func _enter_tree() -> void:
-		dialog_editor = editor_plugin.dialog_editor
+		dialog_editor_window = editor_plugin.dialog_editor
 
 	func _init() -> void:
 		method_button = Button.new()
