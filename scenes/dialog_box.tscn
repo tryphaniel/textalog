@@ -107,6 +107,7 @@ offset_top = -0.280029
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("3_6aa05")
 script = ExtResource("1_xumso")
 showname_label = NodePath("Showname/MarginContainer/HBoxContainer/RichTextLabel")
 dialog_label = NodePath("Dialog/MarginContainer/RichTextLabel")
@@ -120,7 +121,6 @@ anchor_bottom = 1.0
 offset_top = 58.0
 grow_vertical = 0
 mouse_filter = 1
-theme = ExtResource("3_6aa05")
 
 [node name="MarginContainer" type="MarginContainer" parent="Dialog"]
 layout_mode = 2
@@ -150,7 +150,6 @@ offset_right = 363.0
 offset_bottom = 58.0
 grow_vertical = 0
 mouse_filter = 1
-theme = ExtResource("3_6aa05")
 script = ExtResource("4_fcl71")
 showname = "Showname is Here"
 
@@ -203,13 +202,16 @@ border_width = 2.0
 [node name="NextIcon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(22, 22)
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1242.0
+offset_left = -38.0
 offset_top = -29.0
-offset_right = 1264.0
+offset_right = -16.0
 offset_bottom = -7.0
+grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("7_ff1qe")
 expand_mode = 1

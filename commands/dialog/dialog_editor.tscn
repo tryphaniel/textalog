@@ -22,76 +22,79 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ButtonBar" type="HFlowContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Bold" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Bold" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Bold"
 
-[node name="Italics" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Italics" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Italics"
 
-[node name="Underline" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Underline" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Underline"
 
-[node name="Strikethrough" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Strikethrough" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Strikethrough"
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="Center" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Center" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Center"
 
-[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Left" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Left"
 
-[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Right" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Right"
 
-[node name="Fill" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Fill" type="Button" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Fill"
 
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="TextColorLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="TextColorLabel" type="Label" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Text Color:"
 
-[node name="TextColorPicker" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer"]
+[node name="TextColorPicker" type="ColorPickerButton" parent="VBoxContainer/ButtonBar"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 color = Color(1, 1, 1, 1)
 
-[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="BackgroundColorLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="BackgroundColorLabel" type="Label" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Background Color:"
 
-[node name="BackgroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer"]
+[node name="BackgroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/ButtonBar"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="VSeparator4" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="VSeparator4" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
-[node name="ForegroundColorLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="ForegroundColorLabel" type="Label" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 text = "Foreground Color:"
 
-[node name="ForegroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer"]
+[node name="ForegroundColorPicker" type="ColorPickerButton" parent="VBoxContainer/ButtonBar"]
 custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="VBoxContainer/ButtonBar"]
 layout_mode = 2
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
@@ -100,25 +103,30 @@ size_flags_vertical = 3
 deselect_on_focus_loss_enabled = false
 metadata/_edit_use_anchors_ = true
 
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "Play Message"
+
 [node name="DialogBox" parent="." instance=ExtResource("2_qc1nv")]
-layout_mode = 1
+layout_mode = 2
+anchors_preset = 0
 anchor_top = 0.671
 offset_top = -0.119995
 grow_vertical = 0
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bold" to="." method="insert_tag" binds= ["b"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Italics" to="." method="insert_tag" binds= ["i"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Underline" to="." method="insert_tag" binds= ["u"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Strikethrough" to="." method="insert_tag" binds= ["s"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Center" to="." method="insert_tag" binds= ["center"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Left" to="." method="insert_tag" binds= ["left"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Right" to="." method="insert_tag" binds= ["right"]]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Fill" to="." method="insert_tag" binds= ["fill"]]
-[connection signal="color_changed" from="VBoxContainer/HBoxContainer/TextColorPicker" to="." method="_on_text_color_picker_color_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextColorPicker" to="." method="_on_text_color_picker_pressed"]
-[connection signal="color_changed" from="VBoxContainer/HBoxContainer/BackgroundColorPicker" to="." method="_on_background_color_picker_color_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackgroundColorPicker" to="." method="_on_background_color_picker_pressed"]
-[connection signal="color_changed" from="VBoxContainer/HBoxContainer/ForegroundColorPicker" to="." method="_on_foreground_color_picker_color_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ForegroundColorPicker" to="." method="_on_foreground_color_picker_pressed"]
-[connection signal="caret_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_caret_changed"]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Bold" to="." method="insert_tag" binds= ["b"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Italics" to="." method="insert_tag" binds= ["i"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Underline" to="." method="insert_tag" binds= ["u"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Strikethrough" to="." method="insert_tag" binds= ["s"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Center" to="." method="insert_tag" binds= ["center"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Left" to="." method="insert_tag" binds= ["left"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Right" to="." method="insert_tag" binds= ["right"]]
+[connection signal="pressed" from="VBoxContainer/ButtonBar/Fill" to="." method="insert_tag" binds= ["fill"]]
+[connection signal="popup_closed" from="VBoxContainer/ButtonBar/TextColorPicker" to="." method="_on_text_color_picker_popup_closed"]
+[connection signal="popup_closed" from="VBoxContainer/ButtonBar/BackgroundColorPicker" to="." method="_on_background_color_picker_popup_closed"]
+[connection signal="popup_closed" from="VBoxContainer/ButtonBar/ForegroundColorPicker" to="." method="_on_foreground_color_picker_popup_closed"]
 [connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer/PlayButton" to="." method="_on_play_button_pressed"]

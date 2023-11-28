@@ -1,7 +1,68 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2rsub3l68wd5"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b2rsub3l68wd5"]
 
 [ext_resource type="StyleBox" uid="uid://4gtak48ac6eo" path="res://addons/textalog/ui/dialog_box.tres" id="1_s6y0u"]
+[ext_resource type="FontFile" uid="uid://dmr7f6s4pyqg5" path="res://addons/textalog/ui/dialog_box/normal_font.tres" id="2_cj6l0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8d63b"]
+
+[sub_resource type="FontVariation" id="FontVariation_kjr2u"]
+base_font = ExtResource("2_cj6l0")
+variation_embolden = 1.1
+
+[sub_resource type="FontVariation" id="FontVariation_lo5gg"]
+base_font = ExtResource("2_cj6l0")
+variation_embolden = 1.1
+variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_knpr2"]
+base_font = ExtResource("2_cj6l0")
+variation_transform = Transform2D(1, 0.15, 0, 1, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk265"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fhie"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
 [resource]
+default_font = ExtResource("2_cj6l0")
 default_font_size = 32
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/styles/normal = SubResource("StyleBoxEmpty_8d63b")
 PanelContainer/styles/panel = ExtResource("1_s6y0u")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/selection_color = Color(0.1, 0.1, 1, 0.8)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_kjr2u")
+RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_lo5gg")
+RichTextLabel/fonts/italics_font = SubResource("FontVariation_knpr2")
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_lk265")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_2fhie")
